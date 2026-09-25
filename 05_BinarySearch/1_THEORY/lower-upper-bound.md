@@ -2,7 +2,7 @@
 
 ## What is it? (এটি কী?)
 সি++ (C++) এ `lower_bound` এবং `upper_bound` নামে দুটি বিল্ট-ইন (Built-in) ফাংশন আছে। কিন্তু জাভাতে সরাসরি এগুলো নেই (хоть `Arrays.binarySearch` আছে, কিন্তু ডাটা ডুপ্লিকেট থাকলে সেটি নির্দিষ্ট ইন্ডেক্স রিটার্ন করার গ্যারান্টি দেয় না)।
-তাই FAANG ইন্টারভিউতে "Find First and Last Position of Element in Sorted Array" এর মতো প্রশ্নে আপনাকে নিজে হাতে এই লজিকটি ইমপ্লিমেন্ট করতে হবে।
+তাই Software Company ইন্টারভিউতে "Find First and Last Position of Element in Sorted Array" এর মতো প্রশ্নে আপনাকে নিজে হাতে এই লজিকটি ইমপ্লিমেন্ট করতে হবে।
 
 ## Lower Bound (প্রথম উপস্থিতি)
 লোয়ার বাউন্ড হলো কোনো নির্দিষ্ট টার্গেটের **প্রথম উপস্থিতি (First Occurrence)** অথবা এমন একটি পজিশন যেখানে টার্গেটটিকে ইনসার্ট (Insert) করলে অ্যারের সর্টেড (Sorted) অবস্থা ঠিক থাকবে।

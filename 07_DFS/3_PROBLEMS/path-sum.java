@@ -1,4 +1,6 @@
-package 18_DFS_PATTERN.TOP_10_PROBLEMS;
+package 
+
+18_DFS_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 112. Path Sum
@@ -10,32 +12,37 @@ package 18_DFS_PATTERN.TOP_10_PROBLEMS;
 public class path_sum {
 
     class TreeNode {
+
         int val;
         TreeNode left, right;
-        TreeNode(int x) { val = x; }
+
+        TreeNode(int x) {
+            val = x;
+        }
     }
 
     /**
      * Approach: DFS (Recursive subtraction)
-     * 
-     * Time Complexity: O(N)
-     * Space Complexity: O(H) where H is tree height
+     *
+     * Time Complexity: O(N) Space Complexity: O(H) where H is tree height
      */
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        if (root == null) return false;
-        
+        if (root == null) {
+            return false;
+        }
+
         // Check if it's a leaf node
         if (root.left == null && root.right == null) {
             return targetSum == root.val;
         }
-        
+
         // Subtract current value and check children
         int remainingSum = targetSum - root.val;
         return hasPathSum(root.left, remainingSum) || hasPathSum(root.right, remainingSum);
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This is the perfect example of DFS base cases. 
      * Always clarify with the interviewer if "path" must start from the root 
      * and end at a leaf.

@@ -1,11 +1,14 @@
-package 22_TRIE_PATTERN.TEMPLATE;
+package 
+
+22_TRIE_PATTERN.TEMPLATE;
 
 /**
- * FAANG Standard Trie Template
+ * Software Company Standard Trie Template
  */
 public class trie_template {
 
     class TrieNode {
+
         TrieNode[] children;
         boolean isEndOfWord;
 
@@ -22,8 +25,7 @@ public class trie_template {
     }
 
     /**
-     * Template 1: Insert a word into the trie
-     * Time Complexity: O(L)
+     * Template 1: Insert a word into the trie Time Complexity: O(L)
      */
     public void insert(String word) {
         TrieNode curr = root;
@@ -38,8 +40,7 @@ public class trie_template {
     }
 
     /**
-     * Template 2: Search for a word in the trie
-     * Time Complexity: O(L)
+     * Template 2: Search for a word in the trie Time Complexity: O(L)
      */
     public boolean search(String word) {
         TrieNode node = getLastNode(word);
@@ -47,8 +48,8 @@ public class trie_template {
     }
 
     /**
-     * Template 3: Check if any word starts with the given prefix
-     * Time Complexity: O(L)
+     * Template 3: Check if any word starts with the given prefix Time
+     * Complexity: O(L)
      */
     public boolean startsWith(String prefix) {
         return getLastNode(prefix) != null;
@@ -58,7 +59,9 @@ public class trie_template {
         TrieNode curr = root;
         for (char c : s.toCharArray()) {
             int index = c - 'a';
-            if (curr.children[index] == null) return null;
+            if (curr.children[index] == null) {
+                return null;
+            }
             curr = curr.children[index];
         }
         return curr;

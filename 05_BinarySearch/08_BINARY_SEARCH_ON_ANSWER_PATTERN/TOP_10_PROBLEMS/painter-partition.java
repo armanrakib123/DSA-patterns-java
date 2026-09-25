@@ -1,4 +1,6 @@
-package 08_BINARY_SEARCH_ON_ANSWER_PATTERN.TOP_10_PROBLEMS;
+package 
+
+08_BINARY_SEARCH_ON_ANSWER_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * InterviewBit / GeeksForGeeks: Painter's Partition Problem
@@ -15,28 +17,27 @@ package 08_BINARY_SEARCH_ON_ANSWER_PATTERN.TOP_10_PROBLEMS;
 public class painter_partition {
 
     /**
-     * Approach: Binary Search on Answer
-     * This is mathematically identical to "Split Array Largest Sum" and "Allocate Books".
-     * The maximum time any painter takes will determine the total time.
-     * We want to minimize this maximum time.
-     * 
-     * Time Complexity: O(N log(Sum))
-     * Space Complexity: O(1)
+     * Approach: Binary Search on Answer This is mathematically identical to
+     * "Split Array Largest Sum" and "Allocate Books". The maximum time any
+     * painter takes will determine the total time. We want to minimize this
+     * maximum time.
+     *
+     * Time Complexity: O(N log(Sum)) Space Complexity: O(1)
      */
     public int paint(int A, int B, int[] C) {
         long low = 0;
         long high = 0;
-        
+
         for (int board : C) {
             low = Math.max(low, board); // A single board MUST be painted by 1 painter
             high += board; // 1 painter paints all boards
         }
-        
+
         long ans = high;
-        
+
         while (low <= high) {
             long mid = low + (high - low) / 2;
-            
+
             if (isPossible(C, A, mid)) {
                 ans = mid; // Try to minimize time
                 high = mid - 1;
@@ -44,16 +45,16 @@ public class painter_partition {
                 low = mid + 1; // Time is too small, need more time
             }
         }
-        
+
         // Multiply by B (time per unit) and modulo
         // We multiply AFTER the binary search to prevent massive overflow during the search
         return (int) ((ans * B) % 10000003);
     }
-    
+
     private boolean isPossible(int[] boards, int maxPainters, long maxTimeAllowed) {
         int paintersUsed = 1;
         long currentTime = 0;
-        
+
         for (int board : boards) {
             if (currentTime + board > maxTimeAllowed) {
                 paintersUsed++;
@@ -61,17 +62,17 @@ public class painter_partition {
             } else {
                 currentTime += board;
             }
-            
+
             if (paintersUsed > maxPainters) {
                 return false;
             }
         }
-        
+
         return true;
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * A common trap here is multiplying the board lengths by 'B' BEFORE doing the Binary Search.
      * While technically correct, it causes massive integer overflows.
      * The senior approach is to binary search the "Units of Board", find the minimum maximum units,

@@ -1,4 +1,6 @@
-package FAANG_DSA_PATTERNS_MASTER.07_BINARY_SEARCH_ON_ANSWER;
+package Software
+
+Company_DSA_PATTERNS_MASTER.07_BINARY_SEARCH_ON_ANSWER;
 
 /**
  * 🎯 Problem 2: Capacity To Ship Packages Within D Days (LeetCode 1011)
@@ -74,11 +76,11 @@ public class CapacityToShipPackages {
 
     public static void main(String[] args) {
         CapacityToShipPackages solution = new CapacityToShipPackages();
-        
-        int[] weights = {1,2,3,4,5,6,7,8,9,10};
+
+        int[] weights = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int days = 5;
-        
-        System.out.println("Minimum Ship Capacity: " + solution.shipWithinDays(weights, days)); 
+
+        System.out.println("Minimum Ship Capacity: " + solution.shipWithinDays(weights, days));
         // Expected Output: 15
     }
 }

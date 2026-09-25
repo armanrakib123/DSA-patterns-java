@@ -1,4 +1,6 @@
-package 07_BINARY_SEARCH_PATTERN.TOP_10_PROBLEMS;
+package 
+
+07_BINARY_SEARCH_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 69. Sqrt(x)
@@ -12,25 +14,28 @@ package 07_BINARY_SEARCH_PATTERN.TOP_10_PROBLEMS;
 public class sqrtx {
 
     /**
-     * Approach: Binary Search on Answer
-     * The square root of x will always lie between 1 and x.
-     * So our search space is [1, x]. Since this sequence is sorted, we can apply Binary Search.
-     * 
-     * Time Complexity: O(log X)
-     * Space Complexity: O(1)
+     * Approach: Binary Search on Answer The square root of x will always lie
+     * between 1 and x. So our search space is [1, x]. Since this sequence is
+     * sorted, we can apply Binary Search.
+     *
+     * Time Complexity: O(log X) Space Complexity: O(1)
      */
     public int mySqrt(int x) {
         // Base cases
-        if (x == 0) return 0;
-        if (x == 1) return 1;
-        
+        if (x == 0) {
+            return 0;
+        }
+        if (x == 1) {
+            return 1;
+        }
+
         int left = 1;
         int right = x / 2; // Optimization: sqrt(x) is always <= x/2 for x >= 2
         int ans = 1;
-        
+
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            
+
             // To prevent Integer Overflow (mid * mid > Integer.MAX_VALUE),
             // Instead of checking (mid * mid == x), we check (mid == x / mid)
             if (mid == x / mid) {
@@ -38,19 +43,19 @@ public class sqrtx {
             } else if (mid < x / mid) {
                 // mid*mid is less than x, so it could be the answer
                 // record it, and try to find a larger one on the right
-                ans = mid; 
+                ans = mid;
                 left = mid + 1;
             } else {
                 // mid*mid is greater than x, so search left
                 right = mid - 1;
             }
         }
-        
+
         return ans; // 'ans' stores the truncated integer part
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This is the perfect introduction to the "Binary Search on Answer" pattern.
      * The most critical part here is avoiding Integer Overflow.
      * Many candidates write `if (mid * mid <= x)`. If mid is 100,000, `mid * mid` 

@@ -25,6 +25,6 @@ Binary Search কাজ করার একমাত্র এবং প্র�
   - `if (isValid(mid) == true)`: এটি একটি সম্ভাব্য উত্তর। কিন্তু আমরা আরো বড় উত্তর খুঁজতে ডানে যাব। `low = mid + 1`।
   - `if (isValid(mid) == false)`: এত বড় দূরত্ব সম্ভব নয়। দূরত্ব কমাতে হবে। বামে যাব। `high = mid - 1`।
 
-## Why do FAANG Interviewers care about this?
+## Why do Software Company Interviewers care about this?
 অনেক ক্যান্ডিডেট Binary Search on Answer এর কোড মুখস্ত করে যায় এবং বুঝতে পারে না কখন `low = mid + 1` আর কখন `high = mid - 1` লিখতে হবে।
 যদি আপনি ইন্টারভিউয়ারের সামনে এই F F F T T T প্যাটার্নটি ড্র (Draw) করে বলেন, "Since it's an F F F T T pattern and I need the minimum, I will move left when it's True", তাহলে ইন্টারভিউয়ার বুঝবে আপনার ফাউন্ডেশন কতটা শক্ত!

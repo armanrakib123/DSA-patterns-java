@@ -1,4 +1,6 @@
-package 22_TRIE_PATTERN.TOP_10_PROBLEMS;
+package 
+
+22_TRIE_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 745. Prefix and Suffix Search
@@ -9,7 +11,9 @@ package 22_TRIE_PATTERN.TOP_10_PROBLEMS;
 public class prefix_and_suffix_search {
 
     class WordFilter {
+
         class TrieNode {
+
             TrieNode[] children = new TrieNode[27]; // 26 letters + '{' (for separator)
             int weight = 0;
         }
@@ -32,7 +36,9 @@ public class prefix_and_suffix_search {
             TrieNode curr = root;
             for (char c : s.toCharArray()) {
                 int index = c - 'a';
-                if (curr.children[index] == null) curr.children[index] = new TrieNode();
+                if (curr.children[index] == null) {
+                    curr.children[index] = new TrieNode();
+                }
                 curr = curr.children[index];
                 curr.weight = weight;
             }
@@ -41,7 +47,9 @@ public class prefix_and_suffix_search {
         public int f(String prefix, String suffix) {
             TrieNode curr = root;
             for (char c : (suffix + "{" + prefix).toCharArray()) {
-                if (curr.children[c - 'a'] == null) return -1;
+                if (curr.children[c - 'a'] == null) {
+                    return -1;
+                }
                 curr = curr.children[c - 'a'];
             }
             return curr.weight;
@@ -49,7 +57,7 @@ public class prefix_and_suffix_search {
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This "Suffix + Separator + Prefix" trick is the key to solving 
      * complex two-way prefix/suffix matches in O(L) time.
      */

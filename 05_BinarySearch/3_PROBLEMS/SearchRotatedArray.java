@@ -1,8 +1,10 @@
-package FAANG_DSA_PATTERNS_MASTER.06_BINARY_SEARCH_PATTERN;
+package Software
+
+Company_DSA_PATTERNS_MASTER.06_BINARY_SEARCH_PATTERN;
 
 /**
  * 🎯 Problem 3: Search in Rotated Sorted Array (LeetCode 33)
- * লেভেল: Medium (FAANG Favorite)
+ * লেভেল: Medium (Software Company Favorite)
  * 
  * প্রশ্ন: একটি sorted array কে কোনো একটি অজানা পিভট (pivot) পয়েন্টে রোটেট বা ঘোরানো হয়েছে।
  * যেমন: [0,1,2,4,5,6,7] রোটেট হয়ে [4,5,6,7,0,1,2] হতে পারে।
@@ -48,8 +50,7 @@ public class SearchRotatedArray {
                 } else {
                     left = mid + 1;  // না, বামের অংশ বাদ দিয়ে ডানে খুঁজব
                 }
-            } 
-            // যদি বাম অংশ সর্টেড না হয়, তার মানে ডান দিকের অংশ (Right Half) অবশ্যই সর্টেড
+            } // যদি বাম অংশ সর্টেড না হয়, তার মানে ডান দিকের অংশ (Right Half) অবশ্যই সর্টেড
             else {
                 // টার্গেট কি এই সর্টেড ডান অংশের ভেতরে আছে?
                 if (target > nums[mid] && target <= nums[right]) {
@@ -65,13 +66,13 @@ public class SearchRotatedArray {
 
     public static void main(String[] args) {
         SearchRotatedArray solution = new SearchRotatedArray();
-        
+
         int[] nums = {4, 5, 6, 7, 0, 1, 2};
-        
-        System.out.println("Search 0: " + solution.search(nums, 0)); 
+
+        System.out.println("Search 0: " + solution.search(nums, 0));
         // Expected Output: 4
-        
-        System.out.println("Search 3: " + solution.search(nums, 3)); 
+
+        System.out.println("Search 3: " + solution.search(nums, 3));
         // Expected Output: -1
     }
 }

@@ -1,25 +1,27 @@
+
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 🎯 Problem 3: Minimum Window Substring (LeetCode 76)
- * লেভেল: Hard (FAANG's Most Asked Sliding Window Problem)
- * 
- * প্রশ্ন: দুটি স্ট্রিং `s` এবং `t` দেওয়া আছে। আপনাকে `s` এর মধ্যে সবচেয়ে ছোট সাবস্ট্রিং 
- * (Minimum window substring) বের করতে হবে, যার মধ্যে `t` এর সমস্ত অক্ষর (ডুপ্লিকেটসহ) উপস্থিত থাকে।
- * 
- * 💡 Intuition:
- * ১. প্রথমে `t` এর ক্যারেক্টারগুলোর ফ্রিকোয়েন্সি (Frequency) গুনে রাখব।
- * ২. একটি উইন্ডো (left, right) নিয়ে স্ট্রিং `s` ট্রাভার্স করব।
- * ৩. উইন্ডোর ভেতরে `t` এর ক্যারেক্টারগুলো পেলে গুনে রাখব (matched count)।
- * ৪. যখন আমাদের উইন্ডোতে `t` এর সবগুলো ক্যারেক্টার পেয়ে যাব, তখন উইন্ডোটি "ভ্যালিড"।
- * ৫. উইন্ডো ভ্যালিড হওয়ার পর, আমরা চেষ্টা করব বাম দিক থেকে (left পয়েন্টার) ক্যারেক্টার বাদ দিয়ে 
- *    উইন্ডোটিকে যতটা সম্ভব ছোট (Shrink) করতে, যতক্ষণ না সেটি ইনভ্যালিড হয়ে যায়।
- * 
+ * 🎯 Problem 3: Minimum Window Substring (LeetCode 76) লেভেল: Hard (Software
+ * Company's Most Asked Sliding Window Problem)
+ *
+ * প্রশ্ন: দুটি স্ট্রিং `s` এবং `t` দেওয়া আছে। আপনাকে `s` এর মধ্যে সবচেয়ে ছোট
+ * সাবস্ট্রিং (Minimum window substring) বের করতে হবে, যার মধ্যে `t` এর সমস্ত
+ * অক্ষর (ডুপ্লিকেটসহ) উপস্থিত থাকে।
+ *
+ * 💡 Intuition: ১. প্রথমে `t` এর ক্যারেক্টারগুলোর ফ্রিকোয়েন্সি (Frequency) গুনে
+ * রাখব। ২. একটি উইন্ডো (left, right) নিয়ে স্ট্রিং `s` ট্রাভার্স করব। ৩. উইন্ডোর
+ * ভেতরে `t` এর ক্যারেক্টারগুলো পেলে গুনে রাখব (matched count)। ৪. যখন আমাদের
+ * উইন্ডোতে `t` এর সবগুলো ক্যারেক্টার পেয়ে যাব, তখন উইন্ডোটি "ভ্যালিড"। ৫.
+ * উইন্ডো ভ্যালিড হওয়ার পর, আমরা চেষ্টা করব বাম দিক থেকে (left পয়েন্টার)
+ * ক্যারেক্টার বাদ দিয়ে উইন্ডোটিকে যতটা সম্ভব ছোট (Shrink) করতে, যতক্ষণ না সেটি
+ * ইনভ্যালিড হয়ে যায়।
+ *
  * Time Complexity: O(N + M) (যেখানে N হলো s এর দৈর্ঘ্য এবং M হলো t এর দৈর্ঘ্য)
- * Space Complexity: O(1) (কারণ ইংলিশ লেটার মাত্র ২৬ বা ৫২টি, তাই হ্যাশম্যাপের সাইজ কনস্ট্যান্ট)
+ * Space Complexity: O(1) (কারণ ইংলিশ লেটার মাত্র ২৬ বা ৫২টি, তাই হ্যাশম্যাপের
+ * সাইজ কনস্ট্যান্ট)
  */
-
 public class _7_MinimumWindowSubstring {
 
     public String minWindow(String s, String t) {
@@ -69,7 +71,7 @@ public class _7_MinimumWindowSubstring {
 
                 left++; // উইন্ডো শ্রিঙ্ক
             }
-            
+
             right++; // উইন্ডো ডানে বাড়াও
         }
 
@@ -78,12 +80,12 @@ public class _7_MinimumWindowSubstring {
 
     public static void main(String[] args) {
         _7_MinimumWindowSubstring solution = new _7_MinimumWindowSubstring();
-        
+
         String s = "ADOBECODEBANC";
         String t = "ABC";
-        
+
         String result = solution.minWindow(s, t);
-        System.out.println("Minimum Window Substring: " + result); 
+        System.out.println("Minimum Window Substring: " + result);
         // Expected Output: "BANC"
     }
 }

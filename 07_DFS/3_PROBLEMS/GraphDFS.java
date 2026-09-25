@@ -1,8 +1,11 @@
+
 public class GraphDFS {
 
     public int numIslands(char[][] grid) {
-        if (grid == null || grid.length == 0) return 0;
-        
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+
         int numIslands = 0;
         int rows = grid.length;
         int cols = grid[0].length;
@@ -10,11 +13,11 @@ public class GraphDFS {
         // গ্রিডের প্রতিটি সেলে যাব
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                
+
                 // যদি '1' পাই, তার মানে নতুন দ্বীপ পেয়েছি
                 if (grid[i][j] == '1') {
                     numIslands++;
-                    
+
                     // DFS কল করে এই দ্বীপের পুরোটা '0' বানিয়ে দিই (Sink the island)
                     dfs(grid, i, j);
                 }
@@ -45,15 +48,15 @@ public class GraphDFS {
 
     public static void main(String[] args) {
         GraphDFS solution = new GraphDFS();
-        
+
         char[][] grid = {
-            {'1','1','0','0','0'},
-            {'1','1','0','0','0'},
-            {'0','0','1','0','0'},
-            {'0','0','0','1','1'}
+            {'1', '1', '0', '0', '0'},
+            {'1', '1', '0', '0', '0'},
+            {'0', '0', '1', '0', '0'},
+            {'0', '0', '0', '1', '1'}
         };
-        
-        System.out.println("Number of Islands: " + solution.numIslands(grid)); 
+
+        System.out.println("Number of Islands: " + solution.numIslands(grid));
         // Output: 3 (উপরের বামে একটি বড়, মাঝখানে একটি ছোট, নিচে ডানে একটি ছোট দ্বীপ)
     }
 }
@@ -84,7 +87,7 @@ public class GraphDFS {
 
 /**
  * Grid/Graph DFS Example
- * LeetCode 200: Number of Islands (Medium) - FAANG Favorite
+ * LeetCode 200: Number of Islands (Medium) - Software Company Favorite
  * 
  * প্রবলেম স্টেটমেন্ট:
  * একটি m x n 2D grid দেওয়া আছে, যেখানে '1' মানে ভূমি (Land) এবং '0' মানে পানি (Water)।

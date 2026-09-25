@@ -1,4 +1,6 @@
-package FAANG_DSA_PATTERNS_MASTER.06_BINARY_SEARCH_PATTERN;
+package Software
+
+Company_DSA_PATTERNS_MASTER.06_BINARY_SEARCH_PATTERN;
 
 /**
  * 🎯 Problem 1: Binary Search (LeetCode 704)
@@ -54,14 +56,14 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         BinarySearch solution = new BinarySearch();
-        
+
         int[] nums = {-1, 0, 3, 5, 9, 12};
         int target = 9;
-        System.out.println("Target index: " + solution.search(nums, target)); 
+        System.out.println("Target index: " + solution.search(nums, target));
         // Expected Output: 4
-        
+
         int target2 = 2;
-        System.out.println("Target index: " + solution.search(nums, target2)); 
+        System.out.println("Target index: " + solution.search(nums, target2));
         // Expected Output: -1 (কারণ 2 অ্যারেতে নেই)
     }
 }

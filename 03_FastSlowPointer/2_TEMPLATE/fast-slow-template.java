@@ -1,7 +1,9 @@
-package 15_FAST_SLOW_POINTER_PATTERN.TEMPLATE;
+package 
+
+15_FAST_SLOW_POINTER_PATTERN.TEMPLATE;
 
 /**
- * FAANG Standard Fast & Slow Pointers Template
+ * Software Company Standard Fast & Slow Pointers Template
  */
 public class fast_slow_template {
 
@@ -9,8 +11,10 @@ public class fast_slow_template {
      * Definition for singly-linked list.
      */
     class ListNode {
+
         int val;
         ListNode next;
+
         ListNode(int x) {
             val = x;
             next = null;
@@ -18,24 +22,25 @@ public class fast_slow_template {
     }
 
     /**
-     * Template 1: Detect Cycle (Floyd's Algorithm)
-     * Space Complexity: O(1)
+     * Template 1: Detect Cycle (Floyd's Algorithm) Space Complexity: O(1)
      */
     public boolean hasCycle(ListNode head) {
-        if (head == null) return false;
-        
+        if (head == null) {
+            return false;
+        }
+
         ListNode slow = head;
         ListNode fast = head;
-        
+
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            
+
             if (slow == fast) {
                 return true; // Cycle found
             }
         }
-        
+
         return false; // No cycle
     }
 
@@ -43,16 +48,18 @@ public class fast_slow_template {
      * Template 2: Find the Middle Node
      */
     public ListNode findMiddle(ListNode head) {
-        if (head == null) return null;
-        
+        if (head == null) {
+            return null;
+        }
+
         ListNode slow = head;
         ListNode fast = head;
-        
+
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        
+
         // At this point, slow is at the middle node
         return slow;
     }
@@ -63,7 +70,7 @@ public class fast_slow_template {
     public ListNode detectCycleStart(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
-        
+
         // Find collision point
         while (fast != null && fast.next != null) {
             slow = slow.next;

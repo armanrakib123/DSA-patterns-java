@@ -3,7 +3,7 @@
 ## Introduction (ভূমিকা)
 Prefix Sum বা Cumulative Sum হলো অ্যারে (Array) বা লিস্টের উপর ভিত্তি করে তৈরি একটি অত্যন্ত শক্তিশালী এবং বহুল ব্যবহৃত টেকনিক। যখন আমাদের একটি অ্যারের নির্দিষ্ট রেঞ্জের (Range) যোগফল বারবার বের করতে হয়, তখন সাধারণ নিয়মে $O(N)$ সময় লাগে। কিন্তু Prefix Sum ব্যবহার করে আমরা এই কাজটিকে $O(1)$ বা কনস্ট্যান্ট টাইমে নামিয়ে আনতে পারি।
 
-FAANG ইন্টারভিউতে Prefix Sum সরাসরি হয়তো জিজ্ঞাসা করবে না, কিন্তু Subarray, Range Queries বা Hashing এর সাথে মিলিয়ে অনেক কঠিন সমস্যার সমাধান করতে এটি ম্যাজিকের মতো কাজ করে।
+Software Company ইন্টারভিউতে Prefix Sum সরাসরি হয়তো জিজ্ঞাসা করবে না, কিন্তু Subarray, Range Queries বা Hashing এর সাথে মিলিয়ে অনেক কঠিন সমস্যার সমাধান করতে এটি ম্যাজিকের মতো কাজ করে।
 
 ## Core Concept (মূল ধারণা)
 ধরা যাক আমাদের একটি অ্যারে আছে `A = [a_0, a_1, a_2, ..., a_{n-1}]`। 
@@ -24,7 +24,7 @@ Prefix Sum Array:
 - `P[4] = 10 + 5 = 15`
 Result: `[1, 3, 6, 10, 15]`
 
-## Why it is FAANG Level Important? (কেন এটি এতটা গুরুত্বপূর্ণ?)
+## Why it is Software Company Level Important? (কেন এটি এতটা গুরুত্বপূর্ণ?)
 1. **Range Sum Queries**: আপনাকে যদি বলা হয় 인ডেক্স `L` থেকে `R` পর্যন্ত উপাদানের যোগফল বের করতে, Prefix Sum দিয়ে আপনি এটি `P[R] - P[L-1]` (যেখানে $L > 0$) ব্যবহার করে মাত্র $O(1)$ টাইমে করতে পারবেন।
 2. **Subarray Problems**: "Subarray Sum Equals K" বা "Continuous Subarray Sum" এর মতো সমস্যাগুলো Hash Map এবং Prefix Sum এর মিশ্রণ ছাড়া $O(N)$ এ সমাধান করা অসম্ভব।
 3. **Difference Array Foundation**: Prefix Sum এর ঠিক বিপরীত কনসেপ্ট হলো Difference Array, যা Range Update এর জন্য ব্যবহৃত হয়।

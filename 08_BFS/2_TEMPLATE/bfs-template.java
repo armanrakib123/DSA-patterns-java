@@ -1,9 +1,11 @@
-package 19_BFS_PATTERN.TEMPLATE;
+package 
+
+19_BFS_PATTERN.TEMPLATE;
 
 import java.util.*;
 
 /**
- * FAANG Standard BFS Templates (Level Order & Multi-source)
+ * Software Company Standard BFS Templates (Level Order & Multi-source)
  */
 public class bfs_template {
 
@@ -12,21 +14,27 @@ public class bfs_template {
      */
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
-        if (root == null) return res;
-        
+        if (root == null) {
+            return res;
+        }
+
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
-        
+
         while (!q.isEmpty()) {
             int size = q.size(); // Number of nodes in current level
             List<Integer> currentLevel = new ArrayList<>();
-            
+
             for (int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
                 currentLevel.add(node.val);
-                
-                if (node.left != null) q.offer(node.left);
-                if (node.right != null) q.offer(node.right);
+
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
             }
             res.add(currentLevel);
         }
@@ -40,7 +48,7 @@ public class bfs_template {
         int rows = grid.length, cols = grid[0].length;
         Queue<int[]> q = new LinkedList<>();
         boolean[][] visited = new boolean[rows][cols];
-        
+
         // 1. Add all sources to the queue
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
@@ -50,10 +58,10 @@ public class bfs_template {
                 }
             }
         }
-        
+
         int steps = 0;
-        int[][] dirs = {{0,1}, {1,0}, {0,-1}, {-1,0}};
-        
+        int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
         while (!q.isEmpty()) {
             int size = q.size();
             for (int i = 0; i < size; i++) {
@@ -71,5 +79,13 @@ public class bfs_template {
         return steps;
     }
 
-    class TreeNode { int val; TreeNode left, right; TreeNode(int x) { val = x; } }
+    class TreeNode {
+
+        int val;
+        TreeNode left, right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
 }

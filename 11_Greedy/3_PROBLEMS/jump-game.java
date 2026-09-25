@@ -1,4 +1,6 @@
-package 24_GREEDY_PATTERN.TOP_10_PROBLEMS;
+package 
+
+24_GREEDY_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 55. Jump Game
@@ -12,27 +14,30 @@ public class jump_game {
 
     /**
      * Approach: Greedy (Track maximum reachable index)
-     * 
-     * Time Complexity: O(N)
-     * Space Complexity: O(1)
+     *
+     * Time Complexity: O(N) Space Complexity: O(1)
      */
     public boolean canJump(int[] nums) {
         int maxReach = 0;
         for (int i = 0; i < nums.length; i++) {
             // If current index is beyond maxReach, we can't move forward
-            if (i > maxReach) return false;
-            
+            if (i > maxReach) {
+                return false;
+            }
+
             // Update maxReach from current position
             maxReach = Math.max(maxReach, i + nums[i]);
-            
+
             // Optimization: if we can already reach the end, return true
-            if (maxReach >= nums.length - 1) return true;
+            if (maxReach >= nums.length - 1) {
+                return true;
+            }
         }
         return true;
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This problem can also be solved with DP, but DP takes O(N^2) time. 
      * The Greedy O(N) approach is what makes you stand out.
      */

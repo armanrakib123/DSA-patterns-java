@@ -34,5 +34,5 @@
 
 *(নোট: 1-based indexing ব্যবহার করলে `r1, c1` ইত্যাদির মানগুলো সেই অনুযায়ী অ্যাডজাস্ট করে নিতে হয়।)*
 
-## Importance in FAANG (ইন্টারভিউতে এর গুরুত্ব)
+## Importance in Software Company (ইন্টারভিউতে এর গুরুত্ব)
 2D Prefix Sum সচরাচর সরাসরি আসে না, তবে ইমেজ প্রসেসিং (Image Processing), গ্রিড অপ্টিমাইজেশন (Matrix Block Sum), এবং "Max Sum of Rectangle No Larger Than K" এর মতো হার্ড (Hard) প্রবলেমে এটি অপরিহার্য। এটি গ্রাফিক্স এবং কম্পিউটার ভিশনের অনেক বেসিক অ্যালগরিদমের মূল ভিত্তি (Integral Image)।

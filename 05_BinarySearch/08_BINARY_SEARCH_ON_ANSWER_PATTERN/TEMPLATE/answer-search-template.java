@@ -1,7 +1,9 @@
-package 08_BINARY_SEARCH_ON_ANSWER_PATTERN.TEMPLATE;
+package 
+
+08_BINARY_SEARCH_ON_ANSWER_PATTERN.TEMPLATE;
 
 /**
- * FAANG Standard Binary Search on Answer Template
+ * Software Company Standard Binary Search on Answer Template
  */
 public class answer_search_template {
 
@@ -14,10 +16,10 @@ public class answer_search_template {
         long low = getMinimumPossible(nums); // e.g., max element
         long high = getMaximumPossible(nums); // e.g., sum of all elements
         long ans = -1;
-        
+
         while (low <= high) {
             long mid = low + (high - low) / 2;
-            
+
             // Step 2: Feasibility check
             if (isValid(nums, mid, targetLimit)) {
                 ans = mid; // It's possible! Record it.
@@ -26,7 +28,7 @@ public class answer_search_template {
                 low = mid + 1; // Not possible. We need a larger capacity (go right)
             }
         }
-        
+
         return (int) ans;
     }
 
@@ -38,10 +40,10 @@ public class answer_search_template {
         long low = 1; // Minimum possible distance
         long high = getMaximumPossible(nums); // Max spread
         long ans = -1;
-        
+
         while (low <= high) {
             long mid = low + (high - low) / 2;
-            
+
             if (isPossibleToPlace(nums, mid, itemsToPlace)) {
                 ans = mid; // It's possible! Record it.
                 low = mid + 1; // But we want the MAXIMUM, so try to find a larger one (go right)
@@ -49,16 +51,15 @@ public class answer_search_template {
                 high = mid - 1; // Not possible. Distance is too big (go left)
             }
         }
-        
+
         return (int) ans;
     }
 
     // --- Helper Functions Skeletons ---
-
     private boolean isValid(int[] nums, long mid, int limit) {
         int count = 1;
         long currentSum = 0;
-        
+
         for (int num : nums) {
             if (currentSum + num > mid) {
                 count++;
@@ -73,7 +74,7 @@ public class answer_search_template {
     private boolean isPossibleToPlace(int[] nums, long mid, int itemsToPlace) {
         int count = 1;
         long lastPlacedPosition = nums[0];
-        
+
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] - lastPlacedPosition >= mid) {
                 count++;
@@ -85,13 +86,17 @@ public class answer_search_template {
 
     private long getMinimumPossible(int[] nums) {
         long max = 0;
-        for (int n : nums) max = Math.max(max, n);
+        for (int n : nums) {
+            max = Math.max(max, n);
+        }
         return max;
     }
 
     private long getMaximumPossible(int[] nums) {
         long sum = 0;
-        for (int n : nums) sum += n;
+        for (int n : nums) {
+            sum += n;
+        }
         return sum;
     }
 }

@@ -21,5 +21,5 @@
 | **State Fill** | Only needed states are filled | All states are filled |
 | **Memory** | Stack + Cache | Cache |
 
-## FAANG Interview Tip
+## Software Company Interview Tip
 ইন্টারভিউতে প্রথমে **Memoization** দিয়ে সলভ করা শুরু করুন কারণ এটি চিন্তা করা সহজ। এরপর ইন্টারভিউয়ার যদি অপ্টিমাইজ করতে বলেন, তখন সেটিকে **Tabulation**-এ কনভার্ট করুন। অনেক সময় ইন্টারভিউয়ার শুধু $O(1)$ স্পেস অপ্টিমাইজেশন চান, যা শুধুমাত্র ট্যাবুলেশন দিয়েই সম্ভব। 📊🏗️⚖️✅

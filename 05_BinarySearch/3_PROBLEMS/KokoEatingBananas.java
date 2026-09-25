@@ -1,4 +1,6 @@
-package FAANG_DSA_PATTERNS_MASTER.07_BINARY_SEARCH_ON_ANSWER;
+package Software
+
+Company_DSA_PATTERNS_MASTER.07_BINARY_SEARCH_ON_ANSWER;
 
 /**
  * 🎯 Problem 1: Koko Eating Bananas (LeetCode 875)
@@ -66,7 +68,7 @@ public class KokoEatingBananas {
             // Math.ceil(pile / k) এর সমতুল্য ইনটিজার ম্যাথ
             // যদি pile = 7 এবং k = 3 হয়, 7/3 = 2 কিন্তু ৩ ঘণ্টা লাগবে (3+3+1)।
             // (7 + 3 - 1) / 3 = 9 / 3 = 3 ঘণ্টা।
-            totalHours += (pile + k - 1) / k; 
+            totalHours += (pile + k - 1) / k;
         }
 
         return totalHours <= h;
@@ -74,11 +76,11 @@ public class KokoEatingBananas {
 
     public static void main(String[] args) {
         KokoEatingBananas solution = new KokoEatingBananas();
-        
+
         int[] piles = {3, 6, 7, 11};
         int h = 8;
-        
-        System.out.println("Minimum eating speed: " + solution.minEatingSpeed(piles, h)); 
+
+        System.out.println("Minimum eating speed: " + solution.minEatingSpeed(piles, h));
         // Expected Output: 4
     }
 }

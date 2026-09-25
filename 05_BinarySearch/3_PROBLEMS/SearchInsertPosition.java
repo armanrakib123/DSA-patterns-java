@@ -1,4 +1,6 @@
-package FAANG_DSA_PATTERNS_MASTER.06_BINARY_SEARCH_PATTERN;
+package Software
+
+Company_DSA_PATTERNS_MASTER.06_BINARY_SEARCH_PATTERN;
 
 /**
  * 🎯 Problem 2: Search Insert Position (LeetCode 35)
@@ -48,16 +50,16 @@ public class SearchInsertPosition {
 
     public static void main(String[] args) {
         SearchInsertPosition solution = new SearchInsertPosition();
-        
+
         int[] nums = {1, 3, 5, 6};
-        
-        System.out.println("Insert 5 at: " + solution.searchInsert(nums, 5)); 
+
+        System.out.println("Insert 5 at: " + solution.searchInsert(nums, 5));
         // Expected Output: 2 (কারণ 5 আগে থেকেই ইনডেক্স 2 তে আছে)
-        
-        System.out.println("Insert 2 at: " + solution.searchInsert(nums, 2)); 
+
+        System.out.println("Insert 2 at: " + solution.searchInsert(nums, 2));
         // Expected Output: 1 (1 এবং 3 এর মাঝে বসবে)
-        
-        System.out.println("Insert 7 at: " + solution.searchInsert(nums, 7)); 
+
+        System.out.println("Insert 7 at: " + solution.searchInsert(nums, 7));
         // Expected Output: 4 (সবার শেষে বসবে)
     }
 }

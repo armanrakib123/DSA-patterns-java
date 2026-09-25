@@ -1,4 +1,6 @@
-package 15_FAST_SLOW_POINTER_PATTERN.TOP_10_PROBLEMS;
+package 
+
+15_FAST_SLOW_POINTER_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 202. Happy Number
@@ -11,26 +13,25 @@ package 15_FAST_SLOW_POINTER_PATTERN.TOP_10_PROBLEMS;
 public class happy_number {
 
     /**
-     * Approach: Fast & Slow Pointers
-     * This problem is equivalent to detecting a cycle in a linked list.
-     * Each number is a node, and the next number (sum of squares) is the next node.
-     * 
-     * Time Complexity: O(log N)
-     * Space Complexity: O(1)
+     * Approach: Fast & Slow Pointers This problem is equivalent to detecting a
+     * cycle in a linked list. Each number is a node, and the next number (sum
+     * of squares) is the next node.
+     *
+     * Time Complexity: O(log N) Space Complexity: O(1)
      */
     public boolean isHappy(int n) {
         int slow = n;
         int fast = n;
-        
+
         do {
             slow = getNext(slow);         // slow moves 1 step
             fast = getNext(getNext(fast)); // fast moves 2 steps
         } while (slow != fast);
-        
+
         // If the cycle ends at 1, it's a happy number
         return slow == 1;
     }
-    
+
     private int getNext(int n) {
         int totalSum = 0;
         while (n > 0) {
@@ -42,7 +43,7 @@ public class happy_number {
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This problem tests your ability to map a mathematical problem to a 
      * known algorithmic pattern (Cycle Detection). 
      * Using a HashSet is another way, but it takes O(log N) space, 

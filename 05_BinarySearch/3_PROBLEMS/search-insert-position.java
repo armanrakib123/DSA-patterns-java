@@ -1,4 +1,6 @@
-package 07_BINARY_SEARCH_PATTERN.TOP_10_PROBLEMS;
+package 
+
+07_BINARY_SEARCH_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 35. Search Insert Position
@@ -11,21 +13,20 @@ package 07_BINARY_SEARCH_PATTERN.TOP_10_PROBLEMS;
 public class search_insert_position {
 
     /**
-     * Approach: Binary Search (Lower Bound)
-     * When the standard `while (left <= right)` loop breaks, the `left` pointer 
-     * exactly points to the index where the target SHOULD be inserted.
-     * This is a mathematical property of this specific binary search template.
-     * 
-     * Time Complexity: O(log N)
-     * Space Complexity: O(1)
+     * Approach: Binary Search (Lower Bound) When the standard `while (left <=
+     * right)` loop breaks, the `left` pointer exactly points to the index where
+     * the target SHOULD be inserted. This is a mathematical property of this
+     * specific binary search template.
+     *
+     * Time Complexity: O(log N) Space Complexity: O(1)
      */
     public int searchInsert(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        
+
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            
+
             if (nums[mid] == target) {
                 return mid; // Target found
             } else if (nums[mid] < target) {
@@ -34,7 +35,7 @@ public class search_insert_position {
                 right = mid - 1; // Search left
             }
         }
-        
+
         // When loop breaks, left > right. 
         // 'left' will be pointing to the first element strictly greater than target,
         // which is exactly where the target should be inserted!
@@ -42,7 +43,7 @@ public class search_insert_position {
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * Returning `left` instead of `-1` is the only difference between this and standard Binary Search.
      * This exact logic is what C++ developers call `lower_bound()`.
      * Memorize this property: At loop termination, `left` = insertion point.

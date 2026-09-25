@@ -1,4 +1,6 @@
-package 15_FAST_SLOW_POINTER_PATTERN.TOP_10_PROBLEMS;
+package 
+
+15_FAST_SLOW_POINTER_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 142. Linked List Cycle II
@@ -10,8 +12,10 @@ package 15_FAST_SLOW_POINTER_PATTERN.TOP_10_PROBLEMS;
 public class detect_cycle_ii {
 
     class ListNode {
+
         int val;
         ListNode next;
+
         ListNode(int x) {
             val = x;
             next = null;
@@ -19,19 +23,19 @@ public class detect_cycle_ii {
     }
 
     /**
-     * Approach: Floyd's Cycle-Finding Algorithm
-     * 1. Detect if a cycle exists using slow and fast pointers.
-     * 2. Find the entry point of the cycle.
-     * 
-     * Time Complexity: O(N)
-     * Space Complexity: O(1)
+     * Approach: Floyd's Cycle-Finding Algorithm 1. Detect if a cycle exists
+     * using slow and fast pointers. 2. Find the entry point of the cycle.
+     *
+     * Time Complexity: O(N) Space Complexity: O(1)
      */
     public ListNode detectCycle(ListNode head) {
-        if (head == null || head.next == null) return null;
-        
+        if (head == null || head.next == null) {
+            return null;
+        }
+
         ListNode slow = head;
         ListNode fast = head;
-        
+
         // Step 1: Detect cycle
         while (fast != null && fast.next != null) {
             slow = slow.next;
@@ -46,12 +50,12 @@ public class detect_cycle_ii {
                 return slow;
             }
         }
-        
+
         return null;
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This is a math-heavy follow-up to the standard cycle detection. 
      * The distance from head to cycle-start is same as distance from 
      * collision-point to cycle-start.

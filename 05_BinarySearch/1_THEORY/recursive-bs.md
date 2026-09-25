@@ -47,6 +47,6 @@ private int search(int[] nums, int target, int left, int right) {
 - **Iterative**: $O(1)$ (কারণ শুধু `left`, `right`, `mid` ভেরিয়েবল ব্যবহার হয়)।
 - **Recursive**: $O(\log N)$ (কারণ রিকার্সন যত গভীরে যায়, ফাংশন কলের জন্য ততগুলো মেমরি স্ট্যাক ফ্রেম (Stack Frame) তৈরি হয়)।
 
-### FAANG Interview Tip
+### Software Company Interview Tip
 কোডিং ইন্টারভিউতে যদি আপনাকে সরাসরি "Binary Search" লিখতে বলা হয়, তবে **সবসময় Iterative পদ্ধতি ব্যবহার করবেন**। কারণ এটি স্পেস অপ্টিমাইজড।
 তবে যদি আপনি Divide & Conquer (যেমন: Merge Sort, Quick Sort) বা Tree Traversal এর সাথে কাজ করেন, তখন Recursive পদ্ধতিটি বেশি মানানসই। ইন্টারভিউয়ারকে এই Trade-off টি (পার্থক্যটি) বুঝিয়ে বলাটা আপনার এক্সপার্টিজ (Expertise) প্রমাণ করে।

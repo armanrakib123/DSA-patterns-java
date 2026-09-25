@@ -1,4 +1,6 @@
-package 15_FAST_SLOW_POINTER_PATTERN.TOP_10_PROBLEMS;
+package 
+
+15_FAST_SLOW_POINTER_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 143. Reorder List
@@ -10,23 +12,26 @@ package 15_FAST_SLOW_POINTER_PATTERN.TOP_10_PROBLEMS;
 public class reorder_list {
 
     class ListNode {
+
         int val;
         ListNode next;
-        ListNode(int x) { val = x; }
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 
     /**
-     * Approach: Combined Patterns
-     * 1. Find middle of list.
-     * 2. Reverse second half.
-     * 3. Merge two halves.
-     * 
-     * Time Complexity: O(N)
-     * Space Complexity: O(1)
+     * Approach: Combined Patterns 1. Find middle of list. 2. Reverse second
+     * half. 3. Merge two halves.
+     *
+     * Time Complexity: O(N) Space Complexity: O(1)
      */
     public void reorderList(ListNode head) {
-        if (head == null || head.next == null) return;
-        
+        if (head == null || head.next == null) {
+            return;
+        }
+
         // 1. Find middle
         ListNode slow = head;
         ListNode fast = head;
@@ -34,7 +39,7 @@ public class reorder_list {
             slow = slow.next;
             fast = fast.next.next;
         }
-        
+
         // 2. Reverse second half
         ListNode prev = null;
         ListNode curr = slow.next;
@@ -45,24 +50,24 @@ public class reorder_list {
             prev = curr;
             curr = next;
         }
-        
+
         // 3. Merge two halves
         ListNode first = head;
         ListNode second = prev; // Head of reversed second half
         while (second != null) {
             ListNode temp1 = first.next;
             ListNode temp2 = second.next;
-            
+
             first.next = second;
             second.next = temp1;
-            
+
             first = temp1;
             second = temp2;
         }
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This problem is a "grand finale" for Linked List basics. 
      * It combines three distinct patterns into one elegant solution.
      */

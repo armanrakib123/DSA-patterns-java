@@ -1,4 +1,6 @@
-package 18_DFS_PATTERN.TOP_10_PROBLEMS;
+package 
+
+18_DFS_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 733. Flood Fill
@@ -11,9 +13,9 @@ public class flood_fill {
 
     /**
      * Approach: DFS traversal
-     * 
-     * Time Complexity: O(N) where N is number of pixels
-     * Space Complexity: O(N) for recursion stack
+     *
+     * Time Complexity: O(N) where N is number of pixels Space Complexity: O(N)
+     * for recursion stack
      */
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
         int initialColor = image[sr][sc];
@@ -22,14 +24,14 @@ public class flood_fill {
         }
         return image;
     }
-    
+
     private void dfs(int[][] image, int r, int c, int initialColor, int newColor) {
         if (r < 0 || r >= image.length || c < 0 || c >= image[0].length || image[r][c] != initialColor) {
             return;
         }
-        
+
         image[r][c] = newColor;
-        
+
         dfs(image, r + 1, c, initialColor, newColor);
         dfs(image, r - 1, c, initialColor, newColor);
         dfs(image, r, c + 1, initialColor, newColor);
@@ -37,7 +39,7 @@ public class flood_fill {
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * Always add the check `initialColor != color` to prevent infinite recursion 
      * when the starting pixel already has the target color.
      */

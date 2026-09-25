@@ -1,4 +1,6 @@
-package 22_TRIE_PATTERN.TOP_10_PROBLEMS;
+package 
+
+22_TRIE_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 208. Implement Trie (Prefix Tree)
@@ -7,6 +9,7 @@ package 22_TRIE_PATTERN.TOP_10_PROBLEMS;
 public class implement_trie {
 
     class TrieNode {
+
         TrieNode[] children = new TrieNode[26];
         boolean isEnd = false;
     }
@@ -40,14 +43,16 @@ public class implement_trie {
     private TrieNode find(String s) {
         TrieNode curr = root;
         for (char c : s.toCharArray()) {
-            if (curr.children[c - 'a'] == null) return null;
+            if (curr.children[c - 'a'] == null) {
+                return null;
+            }
             curr = curr.children[c - 'a'];
         }
         return curr;
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This is the baseline problem for Trie. 
      * Practice writing this until it becomes muscle memory.
      */

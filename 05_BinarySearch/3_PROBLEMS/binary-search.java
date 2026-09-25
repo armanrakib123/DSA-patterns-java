@@ -1,4 +1,6 @@
-package 07_BINARY_SEARCH_PATTERN.TOP_10_PROBLEMS;
+package 
+
+07_BINARY_SEARCH_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 704. Binary Search
@@ -11,21 +13,20 @@ package 07_BINARY_SEARCH_PATTERN.TOP_10_PROBLEMS;
 public class binary_search {
 
     /**
-     * Approach: Standard Iterative Binary Search
-     * The foundational algorithm. Every programmer must write this blindfolded.
-     * 
-     * Time Complexity: O(log N)
-     * Space Complexity: O(1)
+     * Approach: Standard Iterative Binary Search The foundational algorithm.
+     * Every programmer must write this blindfolded.
+     *
+     * Time Complexity: O(log N) Space Complexity: O(1)
      */
     public int search(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1; // 1. Inclusive right bound
-        
+
         while (left <= right) { // 2. <= ensures we check the final single element
-            
+
             // 3. Prevent Integer overflow: (left + right)/2 can overflow
             int mid = left + (right - left) / 2;
-            
+
             if (nums[mid] == target) {
                 return mid; // Target found
             } else if (nums[mid] < target) {
@@ -36,14 +37,14 @@ public class binary_search {
                 right = mid - 1; // 5. -1 prevents infinite loops
             }
         }
-        
+
         return -1; // Target not found
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * If you mess up ANY of the 5 numbered points above during a phone screen, 
-     * the interview is usually over. This is the "Hello World" of FAANG interviews.
+     * the interview is usually over. This is the "Hello World" of Software Company interviews.
      * Always remember: `left <= right` and `mid = left + (right - left) / 2`.
      */
 }

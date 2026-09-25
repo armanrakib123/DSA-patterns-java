@@ -12,7 +12,7 @@ Binary Search হলো এমন একটি অ্যালগরিদম �
 ৪. যদি Target বড় হয়, তবে ডান পাশে ফোকাস করি।
 
 ## The Iterative Approach (লুপ ব্যবহার করে)
-FAANG ইন্টারভিউতে সবসময় ইটারেটিভ (while লুপ) অ্যাপ্রোচকে প্রাধান্য দেওয়া হয়, কারণ এতে রিকার্সন (Recursion) এর মতো কোনো মেমরি স্ট্যাক ওভারহেড (Stack Overhead) থাকে না। এর স্পেস কমপ্লেক্সিটি $O(1)$।
+Software Company ইন্টারভিউতে সবসময় ইটারেটিভ (while লুপ) অ্যাপ্রোচকে প্রাধান্য দেওয়া হয়, কারণ এতে রিকার্সন (Recursion) এর মতো কোনো মেমরি স্ট্যাক ওভারহেড (Stack Overhead) থাকে না। এর স্পেস কমপ্লেক্সিটি $O(1)$।
 
 ### The Most Standard Template (স্ট্যান্ডার্ড টেমপ্লেট)
 ```java
@@ -37,7 +37,7 @@ public int binarySearch(int[] nums, int target) {
 }
 ```
 
-## FAANG Pro Tips (ইন্টারভিউ ট্রিকস)
+## Software Company Pro Tips (ইন্টারভিউ ট্রিকস)
 
 ### 1. Integer Overflow Prevention
 আপনি যদি `mid = (left + right) / 2` লেখেন, আর `left` ও `right` এর মান যদি খুব বড় হয় (যেমন $10^9$), তবে তাদের যোগফল `int` এর ম্যাক্সিমাম লিমিট ($2 \times 10^9$) পার হয়ে যেতে পারে। এতে আপনি নেগেটিভ `mid` পাবেন এবং `ArrayIndexOutOfBoundsException` খাবেন। 

@@ -1,4 +1,6 @@
-package 08_BINARY_SEARCH_ON_ANSWER_PATTERN.TOP_10_PROBLEMS;
+package 
+
+08_BINARY_SEARCH_ON_ANSWER_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 1482. Minimum Number of Days to Make m Bouquets
@@ -13,12 +15,12 @@ package 08_BINARY_SEARCH_ON_ANSWER_PATTERN.TOP_10_PROBLEMS;
 public class minimum_days_bouquets {
 
     /**
-     * Approach: Binary Search on Answer
-     * The answer (days) lies between the minimum day and the maximum day in bloomDay array.
-     * We binary search the days and check if we can form 'm' bouquets of 'k' adjacent flowers on that day.
-     * 
-     * Time Complexity: O(N log(Max - Min))
-     * Space Complexity: O(1)
+     * Approach: Binary Search on Answer The answer (days) lies between the
+     * minimum day and the maximum day in bloomDay array. We binary search the
+     * days and check if we can form 'm' bouquets of 'k' adjacent flowers on
+     * that day.
+     *
+     * Time Complexity: O(N log(Max - Min)) Space Complexity: O(1)
      */
     public int minDays(int[] bloomDay, int m, int k) {
         // Impossible case: we need m * k flowers, but array has less
@@ -26,22 +28,22 @@ public class minimum_days_bouquets {
         if ((long) m * k > bloomDay.length) {
             return -1;
         }
-        
+
         int minDay = Integer.MAX_VALUE;
         int maxDay = 0;
-        
+
         for (int day : bloomDay) {
             minDay = Math.min(minDay, day);
             maxDay = Math.max(maxDay, day);
         }
-        
+
         int low = minDay;
         int high = maxDay;
         int ans = -1;
-        
+
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            
+
             if (canMakeBouquets(bloomDay, mid, m, k)) {
                 ans = mid; // Possible! But try an earlier day
                 high = mid - 1;
@@ -49,17 +51,18 @@ public class minimum_days_bouquets {
                 low = mid + 1; // Not enough flowers bloomed, wait longer
             }
         }
-        
+
         return ans;
     }
-    
+
     /**
-     * Helper: Checks if we can make 'm' bouquets of 'k' ADJACENT flowers on day 'day'.
+     * Helper: Checks if we can make 'm' bouquets of 'k' ADJACENT flowers on day
+     * 'day'.
      */
     private boolean canMakeBouquets(int[] bloomDay, int day, int m, int k) {
         int bouquetsMade = 0;
         int adjacentFlowers = 0;
-        
+
         for (int bloom : bloomDay) {
             // Is the flower bloomed on this day?
             if (bloom <= day) {
@@ -69,23 +72,22 @@ public class minimum_days_bouquets {
                     bouquetsMade++;
                     adjacentFlowers = 0; // Reset for the next bouquet
                 }
-            } 
-            // If the chain is broken, reset adjacent flowers
+            } // If the chain is broken, reset adjacent flowers
             else {
                 adjacentFlowers = 0;
             }
-            
+
             // Early exit optimization
             if (bouquetsMade >= m) {
                 return true;
             }
         }
-        
+
         return bouquetsMade >= m;
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * The condition "ADJACENT flowers" is the trick here.
      * That's why we reset `adjacentFlowers = 0` the moment we find a flower that hasn't bloomed.
      * Also, checking `(long) m * k > bloomDay.length` using a cast to `long` is highly 

@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -6,10 +7,10 @@ import java.util.Queue;
 public class _3_KahnsAlgorithm {
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        
+
         List<List<Integer>> graph = new ArrayList<>();
         int[] inDegree = new int[numCourses];
-        
+
         for (int i = 0; i < numCourses; i++) {
             graph.add(new ArrayList<>());
         }
@@ -17,7 +18,7 @@ public class _3_KahnsAlgorithm {
         for (int[] pre : prerequisites) {
             int course = pre[0];
             int prereq = pre[1];
-            
+
             graph.get(prereq).add(course);
             inDegree[course]++;
         }
@@ -37,7 +38,7 @@ public class _3_KahnsAlgorithm {
 
             for (int neighbor : graph.get(current)) {
                 inDegree[neighbor]--;
-                
+
                 if (inDegree[neighbor] == 0) {
                     queue.add(neighbor);
                 }
@@ -49,11 +50,11 @@ public class _3_KahnsAlgorithm {
 
     public static void main(String[] args) {
         _3_KahnsAlgorithm solution = new _3_KahnsAlgorithm();
-        
+
         int numCourses = 2;
         int[][] prerequisites = {{1, 0}};
         System.out.println("Can finish? " + solution.canFinish(numCourses, prerequisites));
-        
+
         int[][] cyclePrereq = {{1, 0}, {0, 1}};
         System.out.println("Can finish? " + solution.canFinish(numCourses, cyclePrereq));
     }
@@ -82,7 +83,7 @@ public class _3_KahnsAlgorithm {
 
 /**
  * Kahn's Algorithm (BFS based Topological Sort)
- * LeetCode 207: Course Schedule (Medium) - FAANG Favorite
+ * LeetCode 207: Course Schedule (Medium) - Software Company Favorite
  * 
  * প্রবলেম স্টেটমেন্ট:
  * numCourses সংখ্যক কোর্স আছে (0 থেকে numCourses-1)। 

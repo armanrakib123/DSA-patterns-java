@@ -1,4 +1,6 @@
-package 22_TRIE_PATTERN.TOP_10_PROBLEMS;
+package 
+
+22_TRIE_PATTERN.TOP_10_PROBLEMS;
 
 /**
  * LeetCode 211. Design Add and Search Words Data Structure
@@ -10,6 +12,7 @@ package 22_TRIE_PATTERN.TOP_10_PROBLEMS;
 public class design_add_search_words {
 
     class TrieNode {
+
         TrieNode[] children = new TrieNode[26];
         boolean isEnd = false;
     }
@@ -36,9 +39,13 @@ public class design_add_search_words {
     }
 
     private boolean searchInNode(String word, int index, TrieNode node) {
-        if (node == null) return false;
-        if (index == word.length()) return node.isEnd;
-        
+        if (node == null) {
+            return false;
+        }
+        if (index == word.length()) {
+            return node.isEnd;
+        }
+
         char c = word.charAt(index);
         if (c != '.') {
             return searchInNode(word, index + 1, node.children[c - 'a']);
@@ -54,7 +61,7 @@ public class design_add_search_words {
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This variation introduces DFS with Trie. 
      * Handling the '.' wildcard is a classic recursion challenge.
      */

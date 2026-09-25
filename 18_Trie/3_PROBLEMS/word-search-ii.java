@@ -1,14 +1,16 @@
-package 22_TRIE_PATTERN.TOP_10_PROBLEMS;
+package 
+
+22_TRIE_PATTERN.TOP_10_PROBLEMS;
 
 import java.util.*;
 
 /**
- * LeetCode 212. Word Search II
- * Category: Hard (Trie + Matrix DFS/Backtracking)
+ * LeetCode 212. Word Search II Category: Hard (Trie + Matrix DFS/Backtracking)
  */
 public class word_search_ii {
 
     class TrieNode {
+
         TrieNode[] children = new TrieNode[26];
         String word = null; // Store word at leaf for easy retrieval
     }
@@ -19,12 +21,14 @@ public class word_search_ii {
         for (String w : words) {
             TrieNode curr = root;
             for (char c : w.toCharArray()) {
-                if (curr.children[c - 'a'] == null) curr.children[c - 'a'] = new TrieNode();
+                if (curr.children[c - 'a'] == null) {
+                    curr.children[c - 'a'] = new TrieNode();
+                }
                 curr = curr.children[c - 'a'];
             }
             curr.word = w;
         }
-        
+
         List<String> res = new ArrayList<>();
         for (int r = 0; r < board.length; r++) {
             for (int c = 0; c < board[0].length; c++) {
@@ -33,19 +37,21 @@ public class word_search_ii {
         }
         return res;
     }
-    
+
     private void dfs(char[][] board, int r, int c, TrieNode node, List<String> res) {
         char ch = board[r][c];
-        if (ch == '#' || node.children[ch - 'a'] == null) return;
-        
+        if (ch == '#' || node.children[ch - 'a'] == null) {
+            return;
+        }
+
         node = node.children[ch - 'a'];
         if (node.word != null) {
             res.add(node.word);
             node.word = null; // Avoid duplicates
         }
-        
+
         board[r][c] = '#'; // Mark visited
-        
+
         int[] dr = {0, 0, 1, -1};
         int[] dc = {1, -1, 0, 0};
         for (int i = 0; i < 4; i++) {
@@ -54,12 +60,12 @@ public class word_search_ii {
                 dfs(board, nr, nc, node, res);
             }
         }
-        
+
         board[r][c] = ch; // Backtrack
     }
 
     /*
-     * FAANG Interview Note:
+     * Software Company Interview Note:
      * This is a "Boss Level" problem. 
      * Using a Trie to store words makes the backtracking much more efficient 
      * because you can prune branches that don't match any prefix.

@@ -1,3 +1,4 @@
+
 public class _3_TwoSum {
 
     public int[] twoSum(int[] numbers, int target) {
@@ -21,12 +22,12 @@ public class _3_TwoSum {
 
     public static void main(String[] args) {
         _3_TwoSum solution = new _3_TwoSum();
-        
+
         int[] numbers = {2, 7, 11, 15};
         int target = 9;
-        
+
         int[] result = solution.twoSum(numbers, target);
-        System.out.println("Indices: [" + result[0] + ", " + result[1] + "]"); 
+        System.out.println("Indices: [" + result[0] + ", " + result[1] + "]");
     }
 }
 
@@ -51,7 +52,7 @@ public class _3_TwoSum {
  * দুটি নেস্টেড লูป ব্যবহার করে সব জোড়া (Pairs) চেক করা।
  * Time Complexity: O(N^2)
  * Space Complexity: O(1)
- * (এটি FAANG ইন্টারভিউতে রিজেক্টেড হবে)
+ * (এটি Software Company ইন্টারভিউতে রিজেক্টেড হবে)
  * 
  * 🚀 Optimal Approach (Two Pointers):
  * যেহেতু অ্যারেটি সাজানো (Sorted) আছে, আমরা দুটি পয়েন্টার নেব।
